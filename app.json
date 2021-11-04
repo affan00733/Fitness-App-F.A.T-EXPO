@@ -1,0 +1,55 @@
+{
+  "expo": {
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ]
+    ],
+    "name": "rn-soft-ui-kit-free",
+    "slug": "rn-soft-ui-kit-free",
+    "description": "React Native - Soft UI Kit - Free",
+    "primaryColor": "#CB0C9F",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#CB0C9F"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.kakushin.app",
+      "googleServicesFile": "./google-services.json",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#CB0C9F"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "firebase": {
+         "apiKey": "AIzaSyBZSaL3h7bojNRBhIjxtv806EPNzcewXnM",
+  "authDomain": "kakushin-22610.firebaseapp.com",
+  "projectId": "kakushin-22610",
+  "storageBucket": "kakushin-22610.appspot.com",
+  "messagingSenderId": "964256357136",
+  "appId": "1:964256357136:web:1bdc535bf410e5d10c6395",
+  "measurementId": "G-H7FECD51Q9"
+      }
+    }
+  }
+}

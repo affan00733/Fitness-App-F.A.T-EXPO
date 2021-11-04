@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "964256357136",
+    "project_id": "kakushin-22610",
+    "storage_bucket": "kakushin-22610.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964256357136:android:4cc5174cf39bd30d0c6395",
+        "android_client_info": {
+          "package_name": "com.kakushin.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964256357136-9egtf923cktqekqgjg427asaihe9c3tm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHECPM3Ps7uh6CPqGu5U6LijemBIpDrVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964256357136-9egtf923cktqekqgjg427asaihe9c3tm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
