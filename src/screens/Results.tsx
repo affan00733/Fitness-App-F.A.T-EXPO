@@ -191,7 +191,7 @@ const Profile = () => {
                 //   disabled={result.score == '' ? true : false}
                   >
                   <Text bold white transform="uppercase">
-                    {result.score == ''
+                    {result.score === ''
                       ? 'Yet To Be Assessed'
                       : 'Score : ' + result.score + '%'}
                   </Text>

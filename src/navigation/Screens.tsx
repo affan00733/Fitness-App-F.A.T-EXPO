@@ -6,6 +6,12 @@ import {Articles, Components, Home, Profile, Register, Pro} from '../screens';
 import Result from "../screens/Results"
 import Manual from '../screens/ManualAssesment';
 import Assesments from '../screens/Assesment';
+import AutomaticAssesment from '../screens/AutomaticAssesment'
+import AutomaticSelectionImage from '../screens/AutomaticSelectionImage';
+import AutomaticSelectionVideo from '../screens/AutomaticSelectionVideo'
+import ImagePosenet from '../screens/ImagePosenet';
+import VideoPosenet from '../screens/VideoPosenet';
+import Maps from "../screens/Maps"
 import {useScreenOptions, useTranslation} from '../hooks';
 
 const Stack = createStackNavigator();
@@ -50,6 +56,36 @@ export default () => {
       <Stack.Screen
         name="Results"
         component={Result}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Automatic"
+        component={AutomaticAssesment}
+        options={screenOptions.automatic}
+      />
+      <Stack.Screen
+        name="AutomaticSelectionImage"
+        component={AutomaticSelectionImage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="AutomaticSelectionVideo"
+        component={AutomaticSelectionVideo}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ImagePosent"
+        component={ImagePosenet}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="VideoPosenet"
+        component={VideoPosenet}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Maps"
+        component={Maps}
         options={{headerShown: false}}
       />
       <Stack.Screen

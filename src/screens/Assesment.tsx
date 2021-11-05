@@ -1,5 +1,5 @@
 import React, {useLayoutEffect, useState, useEffect} from 'react';
-import {FlatList, TouchableOpacity} from 'react-native';
+import {FlatList, TouchableOpacity,ScrollView} from 'react-native';
 
 import {useNavigation} from '@react-navigation/core';
 import {useHeaderHeight} from '@react-navigation/stack';
@@ -108,12 +108,15 @@ const Components = () => {
   return (
     <Block safe>
       <FlatList
+        initialNumToRender={assessment.length}
         data={assessment}
         showsVerticalScrollIndicator={false}
         keyExtractor={(item, index) => `${index}`}
         // style={{paddingHorizontal: sizes.padding}}
         // contentContainerStyle={{paddingBottom: sizes.l}}
         renderItem={({item}) => {
+          // console.log('data', assessment);
+
           return (
             <TouchableOpacity
               onPress={() => {
@@ -192,7 +195,7 @@ const Components = () => {
                               semibold
                               marginRight={sizes.s}
                               color={colors.danger}>
-                              {item.score != ''
+                              {item.score !== ''
                                 ? item.score + '%'
                                 : 'unavailable'}
                             </Text>

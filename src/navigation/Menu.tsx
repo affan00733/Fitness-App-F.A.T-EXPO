@@ -138,6 +138,7 @@ const DrawerContent = (
     {name: 'Assesment Result', to: 'Assesments', icon: assets.profile},
     {name: t('screens.settings'), to: 'Pro', icon: assets.settings},
     {name: 'Manual Assesment', to: 'Manual', icon: assets.settings},
+    {name: 'Automatic Assesment', to: 'Automatic', icon: assets.extras},
     {name: t('screens.extra'), to: 'Pro', icon: assets.extras},
   ];
 

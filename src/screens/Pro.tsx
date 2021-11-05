@@ -3,7 +3,21 @@ import {Linking, StatusBar} from 'react-native';
 
 import {useTheme, useTranslation} from '../hooks/';
 import {Block, Button, Image, Text} from '../components/';
+import Constants from 'expo-constants';
 
+// camera
+import {Camera} from 'expo-camera';
+
+// tensorflow
+import * as tf from '@tensorflow/tfjs';
+import * as posenet from '@tensorflow-models/posenet';
+import * as ImagePicker from 'expo-image-picker';
+
+import {
+  cameraWithTensors,
+  fetch,
+  decodeJpeg,
+} from '@tensorflow/tfjs-react-native';
 const Pro = () => {
   const {t} = useTranslation();
   const {assets, colors, gradients, sizes} = useTheme();

@@ -161,7 +161,7 @@ const Manual = () => {
     await setLoading(false);
     setModal(false);
     setModal2(false);
-    // navigation.navigate("Home")
+    navigation.navigate("Home")
   };
   // social example
   const Social = () => {

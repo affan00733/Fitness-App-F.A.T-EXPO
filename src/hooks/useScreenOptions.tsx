@@ -117,6 +117,21 @@ export default () => {
         </Button>
       ),
     },
+    automatic: {
+      ...menu,
+      headerTitle: () => (
+        <Text p white>
+          Automatic Assessment - POSENET
+        </Text>
+      ),
+      headerRight: () => null,
+      headerLeft: () => (
+        <Button
+          onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
+          <Image source={icons.menu} radius={0} color={colors.white} />
+        </Button>
+      ),
+    },
     manualAsses: {
       ...menu,
       headerTitle: () => (
