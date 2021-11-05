@@ -1,5 +1,5 @@
 import React, {useLayoutEffect, useState, useEffect} from 'react';
-import {FlatList, TouchableOpacity,ScrollView} from 'react-native';
+import {FlatList, TouchableOpacity, ScrollView} from 'react-native';
 
 import {useNavigation} from '@react-navigation/core';
 import {useHeaderHeight} from '@react-navigation/stack';
@@ -175,9 +175,12 @@ const Components = () => {
 
                         <Block padding={sizes.s} justify="space-between">
                           <Text p bold tertiary>
-                            {new Date(item.timpestamp.seconds * 1000)
+                            {/* {new Date(item.timpestamp.seconds * 1000)
                               .toGMTString()
-                              .slice(0, 16)}
+                              .slice(0, 16)} */}
+                            {item.timpestamp
+                              .toDate()
+                              .toLocaleString('default', {weekday: 'short'})}
                             {/* {item.timpestamp.seconds} */}
                           </Text>
                           <Block row align="center">

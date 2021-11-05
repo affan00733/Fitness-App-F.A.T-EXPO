@@ -5,6 +5,8 @@ import {Block, Button, Image, Input, Product, Text} from '../components/';
 import {useNavigation} from '@react-navigation/core';
 import Firebase from '../firebaseConfig.js';
 
+import * as en from '../assets/workout.json';
+
 const Home = () => {
   const {t} = useTranslation();
   const [tab, setTab] = useState<number>(0);
@@ -21,6 +23,9 @@ const Home = () => {
     },
     [setTab],
   );
+  useEffect(() => {
+    console.log(en.plans.length);
+  }, []);
 
   return (
     <Block>
@@ -80,7 +85,7 @@ const Home = () => {
               />
             </Block>
             <Text p font={fonts?.[tab === 1 ? 'medium' : 'normal']}>
-             Guide
+              Guide
             </Text>
           </Block>
         </Button>
@@ -291,7 +296,11 @@ const Home = () => {
                           marginRight={sizes.s}>
                           Let's Try
                         </Text>
-                        <Image height={15} source={assets.arrow} color={colors.link} />
+                        <Image
+                          height={15}
+                          source={assets.arrow}
+                          color={colors.link}
+                        />
                       </Block>
                     </TouchableOpacity>
                   </Block>
@@ -308,46 +317,55 @@ const Home = () => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{paddingBottom: sizes.l}}>
           <Block row wrap="wrap" justify="space-between" marginTop={sizes.sm}>
-            {/*  */}
-            <Block
-              card
-              flex={0}
-              row={isHorizontal}
-              marginBottom={sizes.sm}
-              width={isHorizontal ? CARD_WIDTH * 2 + sizes.sm : CARD_WIDTH}>
-              <Image
-                resizeMode="cover"
-                source={assets.extras}
-                style={{
-                  height: isHorizontal ? 114 : 110,
-                  width: !isHorizontal ? '100%' : sizes.width / 2.435,
-                }}
-              />
-              <Block
-                paddingTop={sizes.s}
-                justify="space-between"
-                paddingLeft={isHorizontal ? sizes.sm : 0}
-                paddingBottom={isHorizontal ? sizes.s : 0}>
-                <Text p marginBottom={sizes.s}>
-                  {/* {title} */}
-                  title
-                </Text>
-                <TouchableOpacity>
-                  <Block row flex={0} align="center">
-                    <Text
-                      p
-                      color={colors.link}
-                      semibold
-                      size={sizes.linkSize}
-                      marginRight={sizes.s}>
-                      {t('common.readArticle')}
-                    </Text>
-                    <Image source={assets.arrow} color={colors.link} />
+            {en.plans.map((item,index) => {
+              return (
+                <TouchableOpacity key={`type-${index}`}
+                  onPress={() => {
+                    navigation.navigate('GuideDays', {
+                      data: item.days,
+                    });
+                  }}>
+                  <Block
+                    flex={0}
+                    row={isHorizontal}
+                    marginBottom={sizes.sm}
+                    width={CARD_WIDTH * 2 + sizes.sm}>
+                    <Image
+                      background
+                      resizeMode="cover"
+                      height={140}
+                      source={assets.card5}
+                      radius={sizes.cardRadius}>
+                      <Block color="rgba(0,0,0,0.3)" padding={sizes.padding}>
+                        <Block justify="center">
+                          <Text h4 bold center white>
+                            {item.name}
+                          </Text>
+                          <Text p white></Text>
+                        </Block>
+                        <TouchableOpacity>
+                          <Block justify="flex-end" row flex={0} align="center">
+                            <Text
+                              p
+                              color={colors.link}
+                              bold
+                              size={sizes.ss}
+                              marginRight={sizes.s}>
+                              Let's Try
+                            </Text>
+                            <Image
+                              height={15}
+                              source={assets.arrow}
+                              color={colors.link}
+                            />
+                          </Block>
+                        </TouchableOpacity>
+                      </Block>
+                    </Image>
                   </Block>
                 </TouchableOpacity>
-              </Block>
-            </Block>
-            {/*  */}
+              );
+            })}
           </Block>
         </Block>
       )}

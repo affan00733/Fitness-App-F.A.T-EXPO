@@ -12,6 +12,10 @@ import AutomaticSelectionVideo from '../screens/AutomaticSelectionVideo'
 import ImagePosenet from '../screens/ImagePosenet';
 import VideoPosenet from '../screens/VideoPosenet';
 import Maps from "../screens/Maps"
+import GuideDays from "../screens/GuideDays"
+import GuideExercis from '../screens/GuideExercis';
+import GuideExercisVideo from '../screens/GuideExercisVideo';
+
 import {useScreenOptions, useTranslation} from '../hooks';
 
 const Stack = createStackNavigator();
@@ -86,6 +90,22 @@ export default () => {
       <Stack.Screen
         name="Maps"
         component={Maps}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="GuideDays"
+        component={GuideDays}
+        options={{headerShown: false}}
+      />
+
+      <Stack.Screen
+        name="GuideExercis"
+        component={GuideExercis}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="GuideExercisVideo"
+        component={GuideExercisVideo}
         options={{headerShown: false}}
       />
       <Stack.Screen
