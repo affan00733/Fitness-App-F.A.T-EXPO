@@ -8,7 +8,7 @@
         }
       ]
     ],
-    "name": "rn-soft-ui-kit-free",
+    "name": "kakushin",
     "slug": "rn-soft-ui-kit-free",
     "description": "React Native - Soft UI Kit - Free",
     "primaryColor": "#CB0C9F",
@@ -16,9 +16,9 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/Frame.png",
       "resizeMode": "cover",
-      "backgroundColor": "#CB0C9F"
+      "backgroundColor": "#CA142A"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

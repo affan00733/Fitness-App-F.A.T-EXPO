@@ -17,7 +17,18 @@ const Articles = () => {
   const [isSel3, setIsSel3] = useState(false);
   const [user, setUser] = useState();
   const auth = firebase.auth();
-
+  const eventImage = [
+    'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/events%2Fevents_1.jpg?alt=media&token=3fcd8dcd-a611-48b0-af0f-0872b9363989',
+    'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/events%2Fevents_2.jpg?alt=media&token=74d36e82-868e-447b-9be5-1f60bd12cc50',
+    'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/events%2Fevents_10.jpg?alt=media&token=5e7ab927-755a-416e-a709-5b9626e7f889',
+    'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/events%2Fevents_3.jpg?alt=media&token=a4a7926d-ada0-4801-b60c-5b8f1f0a3012',
+    'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/events%2Fevents_4.jpg?alt=media&token=7431ffa8-5374-4dfc-b782-19e4ce6182e9',
+    'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/events%2Fevents_5.jpg?alt=media&token=2f5df9b0-6db2-4e38-a06f-4549585325ed',
+    'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/events%2Fevents_6.jpg?alt=media&token=8ea5d1e3-6c8c-4a58-9615-e0374be4b092',
+    'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/events%2Fevents_7.png?alt=media&token=63951933-d89b-407d-aa57-f5cba7a57f36',
+    'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/events%2Fevents_8.jpg?alt=media&token=91704eba-2bd4-4b44-8dd6-f22a5a627f76',
+    'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/events%2Fevents_9.png?alt=media&token=c24d6217-e636-4f62-823f-6bf7610c0a58',
+  ];
   const navigation = useNavigation();
 
  useEffect(() => {
@@ -188,7 +199,9 @@ const Articles = () => {
                   height={170}
                   resizeMode="cover"
                   source={{
-                    uri: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?fit=crop&w=450&q=80',
+                    uri: eventImage[
+                      Math.floor(Math.random() * eventImage.length)
+                    ],
                   }}
                 />
                 {/* article category */}

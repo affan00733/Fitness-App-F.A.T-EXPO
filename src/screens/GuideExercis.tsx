@@ -94,6 +94,7 @@ const Profile = () => {
                 </View>
               ) : (
                 days.map((item, index) => {
+                  console.log(item);                
                   return (
                     <TouchableOpacity
                       key={`day-${index}`}
@@ -102,8 +103,9 @@ const Profile = () => {
                           data: {
                             name: en.exercises[item.id].name,
                             video: en.exercises[item.id].video,
-                            sets : item.sets,
-                            unit : item.unit
+                            link : en.exercises[item.id].link,
+                            sets: item.sets,
+                            unit: item.unit,
                           },
                         });
                       }}>
@@ -116,7 +118,7 @@ const Profile = () => {
                           background
                           resizeMode="cover"
                           height={100}
-                          source={assets.card5}
+                          source={{uri: en.exercises[item.id].link}}
                           radius={sizes.cardRadius}>
                           <Block
                             color="rgba(0,0,0,0.3)"
@@ -127,7 +129,6 @@ const Profile = () => {
                               </Text>
                               <Text p white></Text>
                             </Block>
-                          
                           </Block>
                         </Image>
                       </Block>

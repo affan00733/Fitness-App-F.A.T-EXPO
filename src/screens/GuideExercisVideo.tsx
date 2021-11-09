@@ -43,7 +43,8 @@ const Profile = () => {
             padding={sizes.sm}
             paddingBottom={sizes.l}
             radius={sizes.cardRadius}
-            source={assets.background}>
+            source={assets.background}
+            >
             <Button
               row
               flex={0}
@@ -70,7 +71,7 @@ const Profile = () => {
                 height={64}
                 marginBottom={sizes.l}
                 source={{
-                  uri: 'https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?fit=crop&w=80&q=80',
+                  uri: route.params.data.link
                 }}
               />
               <Text h4 center bold white>

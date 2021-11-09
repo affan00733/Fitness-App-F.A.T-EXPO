@@ -16,6 +16,12 @@ const Home = () => {
   let type = 'vertical';
   const isHorizontal = type !== 'vertical';
   const CARD_WIDTH = (sizes.width - sizes.padding * 2 - sizes.sm) / 2;
+  const guides = [
+    'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/guide%2Fguide-1.gif?alt=media&token=4cc561b5-caf2-435b-8af8-85e504133357',
+    'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/guide%2Fguide-4.gif?alt=media&token=53dfb06d-2364-4814-a184-7adc8ed9a9b1',
+    'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/guide%2Fguide-2.gif?alt=media&token=ce2721d9-900c-4feb-9115-ffbf1e9045d3',
+    'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/guide%2Fguide-3.gif?alt=media&token=47130b9b-0b05-4827-9e80-f7688382ea8a',
+  ];
 
   const handleProducts = useCallback(
     (tab: number) => {
@@ -99,7 +105,12 @@ const Home = () => {
           contentContainerStyle={{paddingBottom: sizes.l}}>
           <Block row wrap="wrap" justify="space-between" marginTop={sizes.sm}>
             {/*  */}
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Maps', {
+                  data: 'running',
+                });
+              }}>
               <Block
                 flex={0}
                 row={isHorizontal}
@@ -109,12 +120,14 @@ const Home = () => {
                   background
                   resizeMode="cover"
                   height={170}
-                  source={assets.card5}
+                  source={{
+                    uri: 'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/running.gif?alt=media&token=c4be2eab-9da0-45ad-b91f-885e71f1c88f',
+                  }}
                   radius={sizes.cardRadius}>
                   <Block color="rgba(0,0,0,0.3)" padding={sizes.padding}>
                     <Block justify="center">
                       <Text p size={sizes.sm} bold center white>
-                        Chat BOT
+                        Running
                       </Text>
                       <Text p white></Text>
                     </Block>
@@ -151,7 +164,9 @@ const Home = () => {
                   background
                   resizeMode="cover"
                   height={170}
-                  source={assets.card5}
+                  source={{
+                    uri: 'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/jogging.gif?alt=media&token=59b2a577-0cbe-4baf-b7f1-03c9f6e21ce0',
+                  }}
                   radius={sizes.cardRadius}>
                   <Block color="rgba(0,0,0,0.3)" padding={sizes.padding}>
                     <Block justify="center">
@@ -193,7 +208,9 @@ const Home = () => {
                   background
                   resizeMode="cover"
                   height={170}
-                  source={assets.card5}
+                  source={{
+                    uri: 'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/cycling.gif?alt=media&token=d349f743-5daf-45e8-955f-df93d91aba11',
+                  }}
                   radius={sizes.cardRadius}>
                   <Block color="rgba(0,0,0,0.3)" padding={sizes.padding}>
                     <Block justify="center">
@@ -235,7 +252,9 @@ const Home = () => {
                   background
                   resizeMode="cover"
                   height={170}
-                  source={assets.card5}
+                  source={{
+                    uri: 'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/walking.gif?alt=media&token=9ad8836c-6782-4e36-a169-2236b11b8d79',
+                  }}
                   radius={sizes.cardRadius}>
                   <Block color="rgba(0,0,0,0.3)" padding={sizes.padding}>
                     <Block justify="center">
@@ -264,9 +283,7 @@ const Home = () => {
             {/*  */}
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('Maps', {
-                  data: 'running',
-                });
+                Linking.openURL('whatsapp://send?phone=+14155238886');
               }}>
               <Block
                 flex={0}
@@ -277,12 +294,14 @@ const Home = () => {
                   background
                   resizeMode="cover"
                   height={170}
-                  source={assets.card5}
+                  source={{
+                    uri: 'https://firebasestorage.googleapis.com/v0/b/react-test-fd55f.appspot.com/o/chatbot.gif?alt=media&token=ef6f627f-b14f-4480-9553-d76ce62c85f0',
+                  }}
                   radius={sizes.cardRadius}>
                   <Block color="rgba(0,0,0,0.3)" padding={sizes.padding}>
                     <Block justify="center">
                       <Text h4 bold center white>
-                        Running
+                        ChatBot
                       </Text>
                       <Text p white></Text>
                     </Block>
@@ -317,9 +336,10 @@ const Home = () => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{paddingBottom: sizes.l}}>
           <Block row wrap="wrap" justify="space-between" marginTop={sizes.sm}>
-            {en.plans.map((item,index) => {
+            {en.plans.map((item, index) => {
               return (
-                <TouchableOpacity key={`type-${index}`}
+                <TouchableOpacity
+                  key={`type-${index}`}
                   onPress={() => {
                     navigation.navigate('GuideDays', {
                       data: item.days,
@@ -334,7 +354,7 @@ const Home = () => {
                       background
                       resizeMode="cover"
                       height={140}
-                      source={assets.card5}
+                      source={{uri: guides[index]}}
                       radius={sizes.cardRadius}>
                       <Block color="rgba(0,0,0,0.3)" padding={sizes.padding}>
                         <Block justify="center">

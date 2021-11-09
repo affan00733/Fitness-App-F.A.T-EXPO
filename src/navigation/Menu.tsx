@@ -132,14 +132,10 @@ const DrawerContent = (
   // screen list for Drawer menu
   const screens = [
     {name: t('screens.home'), to: 'Home', icon: assets.home},
-    {name: t('screens.components'), to: 'Components', icon: assets.components},
-    {name: 'Events', to: 'Articles', icon: assets.document},
-    {name: t('screens.rental'), to: 'Pro', icon: assets.rental},
+    {name: 'Events', to: 'Articles', icon: assets.articles},
     {name: 'Assesment Result', to: 'Assesments', icon: assets.profile},
-    {name: t('screens.settings'), to: 'Pro', icon: assets.settings},
-    {name: 'Manual Assesment', to: 'Manual', icon: assets.settings},
-    {name: 'Automatic Assesment', to: 'Automatic', icon: assets.extras},
-    {name: t('screens.extra'), to: 'Pro', icon: assets.extras},
+    {name: 'Manual Assesment', to: 'Manual', icon: assets.users},
+    {name: 'Automatic Assesment', to: 'Automatic', icon: assets.check},
   ];
 
   return (
@@ -164,7 +160,7 @@ const DrawerContent = (
               Kakushin
             </Text>
             <Text size={12} semibold>
-              Nomura
+              F.A.T
             </Text>
           </Block>
         </Block>
@@ -250,7 +246,7 @@ const DrawerContent = (
               width={14}
               height={14}
               color={colors.black}
-              source={assets.documentation}
+              source={assets.rental}
             />
           </Block>
           <Text p color={labelColor}>
