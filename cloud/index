@@ -1,0 +1,69 @@
+const Firestore = require('@google-cloud/firestore');
+const PROJECTID = 'kakushin-22610';
+const firestore = new Firestore({
+  projectId: PROJECTID,
+  timestampsInSnapshots: true,
+});
+exports.helloWorld = (req, res) => {
+  
+  function replaceAll(string, search, replace) {
+    return string.split(search).join(replace);
+  }
+  console.log('Dialogflow Request body: ' + JSON.stringify(req.body));
+  let tag = req.body.fulfillmentInfo.tag;
+  console.log('Tag: ' + tag);
+  console.log('Session Info Parameters: ' + JSON.stringify(req.body.sessionInfo.parameters));
+  // The tag is what's specified along with the webhook URL in the GetMostPlayed page.
+  if (tag === 'test1') {
+    // The COLLECTION_NAME is what you named the collection in Firestore.
+    const COLLECTION_NAME = 'auth';
+    // Set genre to the genre param value collected from the user.
+    let phone = replaceAll(JSON.stringify(req.body.sessionInfo.parameters['phone']), '"', '');
+    let height = replaceAll(JSON.stringify(req.body.sessionInfo.parameters['height']), '"', '');
+    let weight = replaceAll(JSON.stringify(req.body.sessionInfo.parameters['weight']), '"', '');
+    let cholesterol = replaceAll(JSON.stringify(req.body.sessionInfo.parameters['cholesterol']), '"', '');
+    let bp = replaceAll(JSON.stringify(req.body.sessionInfo.parameters['bp']), '"', '');
+
+    console.log('Genre: ' + phone);
+    // Check if required params have been populated
+    if (!(req.body.sessionInfo && req.body.sessionInfo.parameters)) {
+      return res.status(404).send({ error: 'Not enough information.' });
+    }
+    // Document id is the genre obtained from the user.
+    const id = "+91"+phone;
+    console.log('Id: ' + id);
+    // If id is null or empty
+    if (!(id && id.length)) {
+      return res.status(404).send({ error: 'Empty genre' });
+    }
+    return firestore.collection(COLLECTION_NAME)
+    .doc(id)
+    .update({
+      bp : bp,
+      cholesterol : cholesterol,
+      height : height,
+      weight : weight
+    })
+    .then(doc => {
+          //   res.status(200).send({
+          //   sessionInfo: {
+          //     parameters: {
+          //       phone: phone
+          //     }
+          //   },
+          //   fulfillmentResponse: {
+          //     messages: [{
+          //       text: {
+          //         text: [phone]
+          //       }
+          //     }]
+          //   }
+          // });
+    }).catch(err => {
+      console.error(err);
+      return res.status(404).send({ error: 'Unable to retrieve the document' });
+    });
+  } else {
+    res.status(200).send({});
+  }
+}; 
